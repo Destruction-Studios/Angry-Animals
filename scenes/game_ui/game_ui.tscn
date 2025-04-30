@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://bno2n3knnla31"]
+
+[ext_resource type="Script" uid="uid://bf6a7af1d4jc8" path="res://scenes/game_ui/game_ui.gd" id="1_hk0ve"]
+[ext_resource type="LabelSettings" uid="uid://nt1nqtutrm57" path="res://resources/grey_32_font.tres" id="1_sq0em"]
+[ext_resource type="LabelSettings" uid="uid://b4nllxwomhbb2" path="res://resources/blue_72_font.tres" id="2_1i64n"]
+[ext_resource type="LabelSettings" uid="uid://ctamjkcofk5q3" path="res://resources/light_blue_48_font.tres" id="3_najyh"]
+[ext_resource type="AudioStream" uid="uid://dejuqa5bi8gh2" path="res://assets/audio/jazzyfrenchy.mp3" id="4_2cwxn"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hk0ve")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Main" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/Main"]
+layout_mode = 2
+text = "Level 10"
+label_settings = ExtResource("1_sq0em")
+
+[node name="AttemptsLabel" type="Label" parent="MarginContainer/Main"]
+layout_mode = 2
+text = "Attempts 0"
+label_settings = ExtResource("1_sq0em")
+
+[node name="Complete" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LevelComplete" type="Label" parent="MarginContainer/Complete"]
+layout_mode = 2
+text = "Level Complete"
+label_settings = ExtResource("2_1i64n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelSpace" type="Label" parent="MarginContainer/Complete"]
+layout_mode = 2
+text = "Press Space"
+label_settings = ExtResource("3_najyh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2cwxn")
+volume_db = -20.0
+parameters/looping = true

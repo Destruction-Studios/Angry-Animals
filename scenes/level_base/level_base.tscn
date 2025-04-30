@@ -1,11 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://76sjd2dkxx7j"]
+[gd_scene load_steps=6 format=3 uid="uid://76sjd2dkxx7j"]
 
 [ext_resource type="Texture2D" uid="uid://brxhpoowy0s4l" path="res://assets/scene/colored_castle.png" id="1_myc1q"]
+[ext_resource type="Script" uid="uid://d0dikvlq32aau" path="res://scenes/level_base/level_base.gd" id="1_u6jkd"]
+[ext_resource type="PackedScene" uid="uid://dif2bkfgdoop3" path="res://scenes/water/water.tscn" id="3_3tlib"]
+[ext_resource type="PackedScene" uid="uid://dbq04dwc6phdk" path="res://scenes/cup/cup.tscn" id="4_ncu3c"]
+[ext_resource type="PackedScene" uid="uid://bno2n3knnla31" path="res://scenes/game_ui/game_ui.tscn" id="5_kr674"]
 
 [node name="LevelBase" type="Node2D"]
+script = ExtResource("1_u6jkd")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(0, -214)
 scale = Vector2(1.12598, 1.12598)
 texture = ExtResource("1_myc1q")
 centered = false
+
+[node name="AnimalSpawn" type="Marker2D" parent="."]
+position = Vector2(121, 415)
+
+[node name="Water" parent="." instance=ExtResource("3_3tlib")]
+
+[node name="Cup" parent="." instance=ExtResource("4_ncu3c")]
+position = Vector2(283, 460)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" instance=ExtResource("5_kr674")]
