@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbpfcvk4c46va"]
+
+[ext_resource type="Texture2D" uid="uid://drx6b44d4aboa" path="res://assets/ui/panel_beige.png" id="1_m5ckn"]
+[ext_resource type="LabelSettings" uid="uid://dcxupp8778dxn" path="res://resources/white_32_font.tres" id="2_0k6fu"]
+[ext_resource type="Script" uid="uid://clx51jkb0xrbv" path="res://scenes/level_button/level_button.gd" id="2_c5ob8"]
+[ext_resource type="LabelSettings" uid="uid://524kn653gdu0" path="res://resources/white_48_font.tres" id="2_fe81u"]
+
+[node name="LevelButton" type="TextureButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+texture_normal = ExtResource("1_m5ckn")
+script = ExtResource("2_c5ob8")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 12
+
+[node name="VBC" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelLabel" type="Label" parent="MC/VBC"]
+layout_mode = 2
+text = "3"
+label_settings = ExtResource("2_fe81u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MC/VBC"]
+layout_mode = 2
+text = "1000"
+label_settings = ExtResource("2_0k6fu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
