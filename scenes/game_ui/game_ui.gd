@@ -1,5 +1,6 @@
 extends Control
 
+@onready var level_label: Label = $MarginContainer/Main/LevelLabel
 @onready var attempts_label: Label = $MarginContainer/Main/AttemptsLabel
 @onready var music: AudioStreamPlayer = $Music
 @onready var complete: VBoxContainer = $MarginContainer/Complete
@@ -7,6 +8,7 @@ extends Control
 var _attempts: int = -1
 
 func _ready() -> void:
+	level_label.text = "Level %s" % ScoreManager.level_selected
 	on_attempt_made()
 	
 
@@ -24,3 +26,5 @@ func on_cup_destroyed(remaining_cups: int):
 		return
 	music.play()
 	complete.show()
+	
+	ScoreManager.set_score_for_level(ScoreManager.level_selected, _attempts)

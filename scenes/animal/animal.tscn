@@ -45,6 +45,7 @@ stream = ExtResource("4_wpis3")
 stream = ExtResource("5_jy2ng")
 
 [node name="DebugLabel" type="Label" parent="."]
+visible = false
 offset_left = -50.0
 offset_top = -112.0
 offset_right = 274.0
